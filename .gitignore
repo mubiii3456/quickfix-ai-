@@ -16,3 +16,6 @@ leads.csv
 
 .env
 .streamlit/secrets.toml
+vectorstore/db/
+*.bin
+*.sqlite3
