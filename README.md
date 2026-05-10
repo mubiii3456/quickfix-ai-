@@ -1,5 +1,11 @@
+⚡ QuickFix AI: Autonomous Plumbing Agent & Lead Generation Agent
+QuickFix AI is a cutting-edge, state-driven AI agent built to transform customer support for the plumbing industry. It doesn't just chat; it understands customer intent, retrieves business-specific knowledge via RAG, and automates the lead-capture pipeline with real-time email notifications.
+
+🚀 Live Deployment: https://quickfixais.streamlit.app/
+
 🏗️ Full Technology Stack (Comprehensive)
 This project integrates a sophisticated AI and Web stack to ensure high performance, security, and accuracy:
+
 
 1. AI Orchestration & Logic
 LangGraph: The core "brain" of the system. It manages the conversation as a Stateful Graph, allowing the agent to intelligently switch between answering questions and collecting lead data.
