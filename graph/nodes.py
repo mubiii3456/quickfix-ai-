@@ -11,6 +11,8 @@ from langchain_core.messages import HumanMessage, AIMessage
 load_dotenv()
 api_key = os.getenv("GROQ_API_KEY")
 email_password = os.getenv("EMAIL_PASS")
+SENDER_EMAIL = os.getenv("SENDER_EMAIL")
+RECEIVER_EMAIL = os.getenv("RECEIVER_EMAIL")
 
 llm = ChatGroq(model="llama-3.3-70b-versatile", groq_api_key=api_key)
 
@@ -27,9 +29,10 @@ def retrieve_node(state: AgentState):
     return {"context": context}
 
 def send_email_alert(lead_details):
-    sender_email = "jammubashir368@gmail.com" 
-    receiver_email = "zartashahmed450@gmail.com" 
-    app_password = os.getenv("EMAIL_PASS")
+    # Ab yahan hardcoded emails nahi hain
+    sender_email = SENDER_EMAIL 
+    receiver_email = RECEIVER_EMAIL 
+    app_password = email_password
 
     msg = MIMEText(f"A new lead has been captured:\n\n{lead_details}")
     msg['Subject'] = '🚨 NEW LEAD: QuickFix Plumbing'
@@ -42,7 +45,8 @@ def send_email_alert(lead_details):
             server.sendmail(sender_email, receiver_email, msg.as_string())
         print("📧 SUCCESS: Email notification sent!")
     except Exception as e:
-        print(f"❌ ERROR: Email not send. Reason: {e}")
+        print(f"❌ ERROR: Email not sent. Reason: {e}")
+
 def generate_node(state: AgentState):
     user_msg = state["messages"][-1].content
     context = state.get("context", "")
@@ -51,18 +55,15 @@ def generate_node(state: AgentState):
     is_booking_intent = any(word in user_msg.lower() for word in ["book", "appointment", "schedule", "hire", "service"])
 
     if has_number:
-    
         save_lead(f"CONTACT: {user_msg}")
         send_email_alert(f"Customer Number: {user_msg}")
         print("✅ Lead Saved & Email Sent!")
-
 
         friendly_response = (
             "Thank you so much! I've noted your phone number. 📝 "
             "A member of the QuickFix team will reach out to you shortly to discuss the details and confirm your appointment. "
             "Is there anything else I can help you with in the meantime?"
         )
-        
 
         return {
             "answer": friendly_response, 
