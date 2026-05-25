@@ -9,9 +9,8 @@
 | Component | Information / Link |
 | :--- | :--- |
 | 🚀 **Production URL** | [https://quickfixais.streamlit.app/](https://quickfixais.streamlit.app/) |
-| 🔒 **Admin Access** | `https://quickfixais.streamlit.app/?view=admin` (Key: `mubashir5007`) |
+| 🔒 **Admin Access** | `https://quickfixais.streamlit.app/?view=admin`  |
 | 👨‍💻 **Lead Developer** | **Jam Mubashir Ahmed** |
-| 🤝 **Connect** | [LinkedIn](https://www.linkedin.com/in/jam-mubashir-ahmed-549577263) \| [GitHub](https://github.com/mubiii3456) \| [WhatsApp](https://wa.me/923167042947) |
 
 ---
 
